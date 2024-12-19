@@ -1,0 +1,248 @@
+
+:root {
+    --bg-color: #16423C;
+    --color-text: #FFF;
+    --color-greenNeon: #dcf11e;
+    --color-border: #dcf11e;
+    --color-food: #ffffff;
+    --color-button: #3b8d82;
+    --color-button-hover: #dcf11e;
+    --color-header-footer-bg: #16423C;
+    --color-header-footer-text: #C4DAD2;
+}
+
+@font-face {
+    font-family: 'DS-Alemoric';
+    src: url('./assets/fonts/alemoric/Alemoric\ -\ \(Demo\)\ hanscostudio.com.ttf') format('truetype');
+}
+
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: linear-gradient(to bottom, rgba(11,32,87,1) 0%, rgba(3,17,33,1) 75%, rgba(0,0,0,1) 100%);
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+}
+
+header, footer {
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+header {
+    display: flex;
+    font-size: 1rem;
+    padding-top: 2em;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+header h1 {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-family: 'DS-Alemoric', sans-serif;
+    font-size: 3em;
+    letter-spacing: 5px;
+    text-shadow: 
+        0 0 5px #A3D8FF, 
+        0 0 10px #4a5bf5, 
+        0 0 20px #4a5bf5, 
+        0 0 40px #613eff, 
+        0 0 80px #613eff, 
+        0 0 120px #613eff;
+    transition: text-shadow 0.05s;
+    z-index: 1000;
+}
+
+.bi-camera-reels-fill {
+    color: #f9fcff;
+}
+
+main {
+    padding: 30px 16px 16px;
+    flex-grow: 1;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+}
+
+/* Base style for desktop */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.grid-item {
+    display: grid;
+    justify-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+.card {
+    position: relative;
+    width: 225px;
+    height: 350px;
+    border: 1px solid #ffffff3d;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+    perspective: 2000px;
+}
+
+.card:hover {
+    border: 3px solid #A3D8FF;
+    box-shadow: 
+        0 0 10px #4A9FF5, 
+        0 0 20px #4A9FF5, 
+        0 0 30px #3E64FF, 
+        0 0 40px #3E64FF;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin: 0;
+    transition: opacity 0.1s;
+    pointer-events: none;
+}
+
+.card.active {
+    transform: perspective(1500px) rotateY(var(--rotate-y, 20deg)) rotateX(var(--rotate-x, -20deg)) translateZ(30px);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+}
+
+.card.active img {
+    filter: brightness(0.7);
+}
+
+footer {
+    padding: 1.5rem 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer p:hover a {
+    text-shadow: 
+        0 0 5px #A3D8FF, 
+        0 0 10px #4a5bf5, 
+        0 0 20px #4a5bf5;
+}
+
+footer p:hover b {
+    color: red;
+    text-shadow: 
+        0 0 5px #ffa3a3, 
+        0 0 10px #f54a4a, 
+        0 0 20px #f54a4a;
+}
+
+/* Media Queries */
+
+/* Portátiles */
+@media screen and (min-width: 769px) and (max-width: 1070px) {
+    main {
+        gap: 0.5em;
+        padding: 0.5em;
+    }
+
+    .card {
+        width: 170px;
+        height: 300px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    main a {
+        margin: 0 5px;
+    }
+
+    .card {
+        width: 150px;
+        height: 200px;
+    }
+
+    .card h3 {
+        height: 30px;
+        line-height: 30px;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    header {
+        padding-top: 1em;
+    }
+
+    header img {
+        width: 30px;
+        height: 30px;
+        margin-left: 1rem;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    main {
+        align-content: center;
+    }
+
+    main a {
+        margin: 0 5px;
+    }
+
+    .card {
+        width: 150px;
+        height: 200px;
+    }
+
+    .card h3 {
+        height: 25px;
+        line-height: 25px;
+    }
+}
